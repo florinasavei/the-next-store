@@ -1,5 +1,9 @@
 @description('Specifies the location for resources.')
 param location string = 'westeurope'
+param EMAILPASSWORD string
+param EMAILSENDER string
+param SMTPSERVER string
+param API_KEY string
 
 
 targetScope = 'subscription'
@@ -14,5 +18,22 @@ module stg './storage.bicep' = {
   scope: rg    // Deployed in the scope of resource group we created above
   params: {
     storageAccountName: 'theflorinstoredev'
+  }
+}
+
+// resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+//   scope: rg
+//   name: 'the-store-rg-florin-dev'
+// }
+
+module apps './apps.bicep' = {
+  name: 'appsDeployment'
+  scope: rg    // Deployed in the scope of resource group we created above
+  params:{
+    webAppNamespace: 'theflorinstoredev'
+    EMAILPASSWORD: EMAILPASSWORD
+    EMAILSENDER: EMAILSENDER
+    SMTPSERVER: SMTPSERVER
+    API_KEY: API_KEY
   }
 }

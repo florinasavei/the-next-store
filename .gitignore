@@ -31,4 +31,4 @@ bin/
 obj/
 
 # personal config files
-devOps/iac/azure-resources/my-maual-deploy.ps1
+devOps/iac/azure-resources/_my-maual-deploy.ps1
