@@ -616,7 +616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.11":
+"@types/react-dom@npm:^18.2.1":
   version: 18.2.1
   resolution: "@types/react-dom@npm:18.2.1"
   dependencies:
@@ -625,7 +625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.0.28":
+"@types/react@npm:*, @types/react@npm:^18.2.0":
   version: 18.2.0
   resolution: "@types/react@npm:18.2.0"
   dependencies:
@@ -2666,8 +2666,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "static-homepage@workspace:."
   dependencies:
-    "@types/react": ^18.0.28
-    "@types/react-dom": ^18.0.11
+    "@types/react": ^18.2.0
+    "@types/react-dom": ^18.2.1
     "@typescript-eslint/eslint-plugin": ^5.57.1
     "@typescript-eslint/parser": ^5.57.1
     "@vitejs/plugin-react": ^4.0.0-beta.0
