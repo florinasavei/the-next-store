@@ -8,6 +8,7 @@ import { ContactPage } from './pages/contact/ContactPage.tsx';
 import { HomePage } from './pages/home/HomePage.tsx';
 import { ShopPage } from './pages/shop/ShopPage.tsx';
 import { PageRoot } from './pages/PageRoot.tsx';
+import './main.css';
 
 const router = createBrowserRouter([
   {
