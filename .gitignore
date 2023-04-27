@@ -15,6 +15,7 @@ dist-ssr
 *.local
 
 # Editor directories and files
+**/.vs/*
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -24,3 +25,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# .net stuff
+bin/
+obj/
+
+# personal config files
+devOps/iac/azure-resources/my-maual-deploy.ps1
