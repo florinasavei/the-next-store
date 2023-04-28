@@ -4,33 +4,17 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { ContactPage } from './pages/contact/ContactPage.tsx';
-import { HomePage } from './pages/home/HomePage.tsx';
-import { ShopPage } from './pages/shop/ShopPage.tsx';
+
 import { PageRoot } from './pages/PageRoot.tsx';
 import './main.css';
+import { topRoutes } from './routes.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:  <PageRoot />,
-    children:[
-      {
-        path: "/",
-        element:  <HomePage />,
-      },
-      {
-        path: "/shop",
-        element:  <ShopPage />,
-      },
-      {
-        path: "/contact",
-        element:  <ContactPage />,
-      },
-    ]
+    children: topRoutes
   },
-  
-
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
