@@ -980,14 +980,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.3.6":
-  version: 1.3.6
-  resolution: "axios@npm:1.3.6"
+"axios@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "axios@npm:1.4.0"
   dependencies:
     follow-redirects: "npm:^1.15.0"
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
-  checksum: d0bdb2256353c4a5eb96042634628251be7a58508dc781a54c7321719084e5c0a268ea6186b09f93b10d06bde91c930e083a204cdf12abdbea5e69d4a5b5e508
+  checksum: 391f7fdb89b0c09d72b825eccf396b3b501c569e8dab759155c4f84b47bb4004432b99d8686758493a3b1d1673c5efd0e4b948108bb0d3de74ca1a8d30877aa6
   languageName: node
   linkType: hard
 
@@ -1138,6 +1138,13 @@ __metadata:
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
   checksum: 7b240ff920db951fd3841116c5e0e2ec4750e20c85cd044ea78f636202e1fa47ce0a20d48c3c912edc52ea0f1615aba37bdd6297d3a731b517647ed33c3dee09
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "classnames@npm:2.3.2"
+  checksum: ecbd166e986b9095e01eba91958907ed43026e35aac98d667a9e958642795632c15a88f36785c66bcfbe05df32e47c1575d22faa46c29de271b013eb00202498
   languageName: node
   linkType: hard
 
@@ -2834,6 +2841,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-form@npm:^7.43.9":
+  version: 7.43.9
+  resolution: "react-hook-form@npm:7.43.9"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 9aa66b9eac80bcf365a15d70ee8a36204ce4398f1cbd6e15fdd2e79eb2bc8931bfd648a82b2eeb4fc5e31b41654a1624424597b422769c6f72885408f85375ba
+  languageName: node
+  linkType: hard
+
 "react-refresh@npm:^0.14.0":
   version: 0.14.0
   resolution: "react-refresh@npm:0.14.0"
@@ -3141,7 +3157,8 @@ __metadata:
     "@typescript-eslint/parser": "npm:^5.57.1"
     "@vitejs/plugin-react": "npm:^4.0.0-beta.0"
     autoprefixer: "npm:^10.4.14"
-    axios: "npm:^1.3.6"
+    axios: "npm:^1.4.0"
+    classnames: "npm:^2.3.2"
     eslint: "npm:^8.38.0"
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-react-refresh: "npm:^0.3.4"
@@ -3150,6 +3167,7 @@ __metadata:
     postcss: "npm:^8.4.23"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
+    react-hook-form: "npm:^7.43.9"
     react-router-dom: "npm:^6.10.0"
     sort-by: "npm:^1.2.0"
     tailwindcss: "npm:^3.3.2"
