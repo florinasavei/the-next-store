@@ -6,10 +6,10 @@ param API_KEY string
 
 var appServicePlanName = toLower('ASP-${webAppNamespace}')
 var FEhomeSiteName = toLower('fe-home-${webAppNamespace}')
-var FEShopName = toLower('fe-shop-${webAppNamespace}')
+var FEShopFrontName = toLower('fe-shopfront-${webAppNamespace}')
+var FEShopBackOfficeName = toLower('fe-shopback-${webAppNamespace}')
 var BEShopName = toLower('be-shop-${webAppNamespace}')
 var BEFuncEmailSenerName = toLower('be-mail-${webAppNamespace}')
-
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   name: appServicePlanName
@@ -23,14 +23,21 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   kind: 'linux'
 }
 
+// Company Homepage
 
-resource FEHomepageAppService 'Microsoft.Web/sites@2020-06-01' = {
+resource PROD_FEHomepageAppService 'Microsoft.Web/sites@2020-06-01' = {
   name: 'prod-${FEhomeSiteName}'
   location: resourceGroup().location
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
       linuxFxVersion: 'node|18-lts'
+      appSettings: [
+        {
+          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+          value: 'false'
+        }
+      ]
     }
   }
 }
@@ -42,38 +49,87 @@ resource QA_FEHomepageAppService 'Microsoft.Web/sites@2020-06-01' = {
     serverFarmId: appServicePlan.id
     siteConfig: {
       linuxFxVersion: 'node|18-lts'
+      appSettings: [
+        {
+          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+          value: 'false'
+        }
+      ]
     }
   }
 }
 
+// Shop front-facing website
 
-
-resource FEShopAppService 'Microsoft.Web/sites@2020-06-01' = {
-  name: 'prod-${FEShopName}'
+resource PROD_FEShopFrontAppService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'prod-${FEShopFrontName}'
   location: resourceGroup().location
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
       linuxFxVersion: 'node|18-lts'
+      appSettings: [
+        {
+          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+          value: 'false'
+        }
+      ]
     }
   }
 }
 
-resource QA_FEShopAppService 'Microsoft.Web/sites@2020-06-01' = {
-  name: 'qa-${FEShopName}'
+resource QA_FEShopFrontAppService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'qa-${FEShopFrontName}'
   location: resourceGroup().location
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
       linuxFxVersion: 'node|18-lts'
+      appSettings: [
+        {
+          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+          value: 'false'
+        }
+      ]
     }
   }
 }
 
+resource PROD_FEShopBackAppService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'prod-${FEShopBackOfficeName}'
+  location: resourceGroup().location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: 'node|18-lts'
+      appSettings: [
+        {
+          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+          value: 'false'
+        }
+      ]
+    }
+  }
+}
 
+resource QA_FEShopBackAppService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'qa-${FEShopBackOfficeName}'
+  location: resourceGroup().location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: 'node|18-lts'
+      appSettings: [
+        {
+          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT'
+          value: 'false'
+        }
+      ]
+    }
+  }
+}
 
-
-resource BEShopAppService 'Microsoft.Web/sites@2020-06-01' = {
+resource PROD_BEShopAppService 'Microsoft.Web/sites@2020-06-01' = {
   name: 'prod-${BEShopName}'
   location: resourceGroup().location
   properties: {
@@ -94,8 +150,6 @@ resource QA_BEShopAppService 'Microsoft.Web/sites@2020-06-01' = {
     }
   }
 }
-
-
 
 resource mailSenderFunction 'Microsoft.Web/sites@2021-02-01' = {
   name: BEFuncEmailSenerName
@@ -142,13 +196,3 @@ resource mailSenderFunction 'Microsoft.Web/sites@2021-02-01' = {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
