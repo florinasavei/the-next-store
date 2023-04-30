@@ -17,20 +17,16 @@ module stg './storage.bicep' = {
   name: 'storageDeployment'
   scope: rg    // Deployed in the scope of resource group we created above
   params: {
-    storageAccountName: 'theflorinstoredev'
+    storageAccountName: 'theflostoredev'
   }
 }
 
-// resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
-//   scope: rg
-//   name: 'the-store-rg-florin-dev'
-// }
 
 module apps './apps.bicep' = {
   name: 'appsDeployment'
   scope: rg    // Deployed in the scope of resource group we created above
   params:{
-    webAppNamespace: 'theflorinstoredev'
+    webAppNamespace: 'theflostoredev'
     EMAILPASSWORD: EMAILPASSWORD
     EMAILSENDER: EMAILSENDER
     SMTPSERVER: SMTPSERVER

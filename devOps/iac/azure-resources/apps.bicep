@@ -5,8 +5,9 @@ param SMTPSERVER string
 param API_KEY string
 
 var appServicePlanName = toLower('ASP-${webAppNamespace}')
-var FEwebSiteName = toLower('fe-web-${webAppNamespace}')
-var BEwebSiteName = toLower('be-web-${webAppNamespace}')
+var FEhomeSiteName = toLower('fe-home-${webAppNamespace}')
+var FEShopName = toLower('fe-shop-${webAppNamespace}')
+var BEShopName = toLower('be-shop-${webAppNamespace}')
 var BEFuncEmailSenerName = toLower('be-mail-${webAppNamespace}')
 
 
@@ -22,8 +23,9 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   kind: 'linux'
 }
 
-resource FEappService 'Microsoft.Web/sites@2020-06-01' = {
-  name: FEwebSiteName
+
+resource FEHomepageAppService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'prod-${FEhomeSiteName}'
   location: resourceGroup().location
   properties: {
     serverFarmId: appServicePlan.id
@@ -33,8 +35,46 @@ resource FEappService 'Microsoft.Web/sites@2020-06-01' = {
   }
 }
 
-resource BEappService 'Microsoft.Web/sites@2020-06-01' = {
-  name: BEwebSiteName
+resource QA_FEHomepageAppService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'qa-${FEhomeSiteName}'
+  location: resourceGroup().location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: 'node|18-lts'
+    }
+  }
+}
+
+
+
+resource FEShopAppService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'prod-${FEShopName}'
+  location: resourceGroup().location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: 'node|18-lts'
+    }
+  }
+}
+
+resource QA_FEShopAppService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'qa-${FEShopName}'
+  location: resourceGroup().location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: 'node|18-lts'
+    }
+  }
+}
+
+
+
+
+resource BEShopAppService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'prod-${BEShopName}'
   location: resourceGroup().location
   properties: {
     serverFarmId: appServicePlan.id
@@ -43,6 +83,19 @@ resource BEappService 'Microsoft.Web/sites@2020-06-01' = {
     }
   }
 }
+
+resource QA_BEShopAppService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'qa-${BEShopName}'
+  location: resourceGroup().location
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: 'DOTNET|6.0'
+    }
+  }
+}
+
+
 
 resource mailSenderFunction 'Microsoft.Web/sites@2021-02-01' = {
   name: BEFuncEmailSenerName
