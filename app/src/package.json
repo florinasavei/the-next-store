@@ -1,0 +1,11 @@
+{
+    "private": true,
+    "name": "the-next-store",
+    "workspaces": [
+        "common/ui/packages/*"
+    ],
+    "volta": {
+        "node": "18.16.0",
+        "yarn": "4.0.0-rc.43"
+    }
+}
